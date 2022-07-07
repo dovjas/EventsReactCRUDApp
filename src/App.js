@@ -1,4 +1,5 @@
 import './App.css';
+import Axios from 'axios'
 import {useState} from 'react';
 
 function App() {
@@ -7,6 +8,17 @@ function App() {
   const [location,setLocation] = useState('');
   const [date,setDate] = useState(new Date());
   const [price,setPrice] = useState(0);
+
+  const addEvent = () =>{
+    Axios.post('http://localhost:3000/create',{
+      title:title,
+      location:location,
+      date:date,
+      price:price,
+    }).then(()=>{
+      console.log('success')
+    })
+  };
 
   return (
     <div className='container'>
@@ -22,7 +34,7 @@ function App() {
         <input type='number' onChange={(e)=>setPrice(e.target.value)}></input>
       </div>
       <div className='buttons'>
-        <button type='submit' className='add-btn'>Add Event</button>
+        <button type='submit' className='add-btn' onClick={addEvent}>Add Event</button>
       </div>
     </div>
   );
