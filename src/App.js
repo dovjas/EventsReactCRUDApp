@@ -8,10 +8,6 @@ function App() {
   const [date,setDate] = useState(new Date());
   const [price,setPrice] = useState(0);
 
-  const check =()=>{
-    console.log(title + location + date + price)
-  }
-
   return (
     <div className='container'>
       <h2>Events data</h2>
@@ -26,7 +22,7 @@ function App() {
         <input type='number' onChange={(e)=>setPrice(e.target.value)}></input>
       </div>
       <div className='buttons'>
-        <button type='submit' onClick={check} className='add-btn'>Add Event</button>
+        <button type='submit' className='add-btn'>Add Event</button>
       </div>
     </div>
   );
