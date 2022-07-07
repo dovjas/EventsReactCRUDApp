@@ -1,16 +1,15 @@
 import './App.css';
-import Axios from 'axios'
+import Axios from 'axios';
 import {useState} from 'react';
 
 function App() {
-
   const [title,setTitle] = useState('');
   const [location,setLocation] = useState('');
   const [date,setDate] = useState(new Date());
   const [price,setPrice] = useState(0);
 
   const addEvent = () =>{
-    Axios.post('http://localhost:3000/create',{
+    Axios.post('http://localhost:3001/create', {
       title:title,
       location:location,
       date:date,
